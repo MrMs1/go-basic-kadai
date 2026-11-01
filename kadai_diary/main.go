@@ -54,12 +54,14 @@ func main() {
 	case "add": // 日記エントリーの記録
 		title := os.Args[2]
 		contents := os.Args[3]
-		err := saveDiary(
-			[]Entry{
-				{time.Now(), title, contents},
-			},
-		)
+		diary, err := loadDiary()
 		if err != nil {
+			fmt.Printf("日記の読み込みでエラーが発生しました。")
+		}
+		diary = append(diary, Entry{time.Now(), title, contents})
+
+		serr := saveDiary(diary)
+		if serr != nil {
 			fmt.Printf("日記の記録でエラーが発生しました。")
 		}
 
