@@ -72,7 +72,7 @@ func main() {
 		}
 		fmt.Printf("--- 日記データ ---\n")
 		for _, note := range diary {
-			fmt.Printf("日時：%s\nタイトル：%s\n本文：\n%s\n", note.Timestamp.Format("2006-01-02 15:04:06"), note.Title, note.Content)
+			fmt.Printf("日時：%s\nタイトル：%s\n本文：\n%s\n", note.Timestamp.Format("2006-01-02 15:04:05"), note.Title, note.Content)
 		}
 	default:
 		fmt.Println("不明なコマンドです：", command)
